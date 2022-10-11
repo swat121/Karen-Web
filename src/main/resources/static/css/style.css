@@ -172,3 +172,22 @@ body {
     -moz-transform: translateX(-50%) translateY(-50%) scale(1);
     transform: translateX(-50%) translateY(-50%) scale(1);
 }
+
+.bullet {
+    list-style: none;
+    text-align: center;
+    display: inline-block;
+    width: 300px;
+}
+.bullet li {
+    position: relative;
+    margin-bottom: 1.5em;
+    border: 3px solid #CADFCF;
+    border-image: linear-gradient(180deg, #d26502, #ff9e01,#f0ab21, #ffe46f);
+    border-image-slice: 1;
+    padding: 0.6em;
+    border-radius: 4px;
+    background: #2f0701;
+    color: #ffffff;
+    font-family: 'Montserrat', sans-serif;
+}

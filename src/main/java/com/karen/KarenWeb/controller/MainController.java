@@ -17,4 +17,12 @@ public class MainController {
     public String getGame(){
         return "game";
     }
+    @GetMapping("/users")
+    public String getUsers(){
+        return "users";
+    }
+    @GetMapping("/about")
+    public String getAbout(){
+        return "about";
+    }
 }
