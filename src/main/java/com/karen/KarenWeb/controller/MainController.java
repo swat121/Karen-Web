@@ -25,4 +25,8 @@ public class MainController {
     public String getAbout(){
         return "about";
     }
+    @GetMapping("/grass")
+    public String getGrass(){
+        return "grass";
+    }
 }
