@@ -8,15 +8,8 @@
 
 </head>
 <body>
-<div class="main-text">
-    <p>Привет, Денис </p>
-    <p>Приглашаю <i>31.10.2022</i> на <i>18:00</i> праздновать Helloween</p>
-<!--    <p>Адрес: <a href="https://goo.gl/maps/kYjniS7NTzPn8EgY8">Дагестанская ул., 16, Дніпро́, Днепропетровская область, 49000</a></p>
--->
-</div>
-<a href="/eat" class="sliding-button">Покушать</a>
-<a href="/game" class="sliding-button">Игры</a>
-<a href="" class="sliding-button">Кто будет</a>
-<!--<a href="" class="sliding-button">Причина по которой мы собираемся</a>-->
+<form th:action="@{/}" method="post">
+    <button type="submit" th:name="action" th:value="in">check-in</button>
+</form>
 </body>
 </html>
