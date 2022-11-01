@@ -7,20 +7,17 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.ArrayList;
+
 @Controller
 public class MainController {
     @GetMapping("/")
-    public String getMain(){
+    public String getMain(Model model){
+        model.addAttribute("name", "main Light");
         return "main";
     }
-//    @PostMapping("/")
-//    public String getButtonClick(Model model, @RequestParam(value = "action") String name){
-//        System.out.println(name + "              -----------------------------------------------");
-//        return "main";
-//    }
-    @RequestMapping("/")
-    public String index(Model model, @RequestParam(value = "action") String name){
-        System.out.println(name + "              -----------------------------------------------");
+    @PostMapping("/")
+    public String getButtonClick(Model model, @RequestParam(value = "action") String name){
         return "main";
     }
 }
