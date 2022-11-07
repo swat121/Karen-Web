@@ -14,4 +14,14 @@ public class WebService {
         DataResponse dataResponse = restTemplate.getForEntity("http://192.168.0.102:8080/" + "patric/status", DataResponse.class).getBody();
         return dataResponse;
     }
+    public void sendRequest(String value){
+        DataResponse dataResponse;
+        switch (value){
+            case "light":
+                dataResponse = restTemplate.getForEntity("http://192.168.0.102:8080/" + "patric/sensor/" + value, DataResponse.class).getBody();
+            default:
+                dataResponse = restTemplate.getForEntity("http://192.168.0.102:8080/" + "patric/setting/" + value, DataResponse.class).getBody();
+        }
+
+    }
 }

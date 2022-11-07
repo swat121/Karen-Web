@@ -21,7 +21,8 @@ public class MainController {
         return "main";
     }
     @PostMapping("/")
-    public String getButtonClick(Model model, @RequestParam(value = "action") String name){
+    public String getButtonClick(Model model, @RequestParam(value = "action") String value){
+        webService.sendRequest(value);
         return "main";
     }
 }
