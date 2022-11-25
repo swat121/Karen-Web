@@ -5,23 +5,29 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import java.net.URI;
+
 @Service
 @RequiredArgsConstructor
 public class WebService {
     private final RestTemplate restTemplate;
 
     public DataResponse getStatus() {
-        DataResponse dataResponse = restTemplate.getForEntity("http://192.168.0.102:8080/" + "patric/status", DataResponse.class).getBody();
+        DataResponse dataResponse = getResponse("karen", "/patric/status", DataResponse.class);
         return dataResponse;
     }
-    public void sendRequest(String value){
-        DataResponse dataResponse;
-        switch (value){
+    public void sendRequest(String value) {
+        String s;
+        switch (value) {
             case "light":
-                dataResponse = restTemplate.getForEntity("http://192.168.0.102:8080/" + "patric/sensor/" + value, DataResponse.class).getBody();
+                s = getResponse("karen", "patric/sensor/" + value, String.class);
             default:
-                dataResponse = restTemplate.getForEntity("http://192.168.0.102:8080/" + "patric/setting/" + value, DataResponse.class).getBody();
+                s = getResponse("karen", "patric/setting/" + value, String.class);
         }
 
+    }
+    public <T> T getResponse(String name, String url, Class<T> responseType) {
+        URI karenUrl = URI.create("http://" + name).resolve(url);
+        return restTemplate.getForEntity(karenUrl, responseType).getBody();
     }
 }

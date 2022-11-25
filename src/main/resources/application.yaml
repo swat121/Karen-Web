@@ -1,3 +1,9 @@
-service:
-  resource:
-    Patric: "http://192.168.0.102:8080/patric"
+eureka:
+  client:
+    service-url:
+      defaultZone: ${EUREKA_HOST:http://localhost:8086/eureka/}
+  instance:
+    instance-id: karenweb-instance
+spring:
+  application:
+    name: karenweb
