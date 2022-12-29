@@ -13,8 +13,7 @@ public class WebService {
     private final RestTemplate restTemplate;
 
     public DataResponse getStatus() {
-        DataResponse dataResponse = getResponse("karen", "/patric/status", DataResponse.class);
-        return dataResponse;
+        return getResponse("karen", "/patric/status", DataResponse.class);
     }
     public void sendRequest(String value) {
         String s;

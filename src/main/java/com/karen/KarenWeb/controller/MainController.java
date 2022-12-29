@@ -1,5 +1,6 @@
 package com.karen.KarenWeb.controller;
 
+import com.karen.KarenWeb.model.DataResponse;
 import com.karen.KarenWeb.service.WebService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -15,15 +16,22 @@ import java.util.ArrayList;
 @AllArgsConstructor
 public class MainController {
     public WebService webService;
-    @GetMapping("/")
+    @GetMapping("/main/control-panel")
     public String getMain(Model model){
-        model.addAttribute("data", webService.getStatus());
-        return "main";
+        DataResponse dataResponse = webService.getStatus();
+        model.addAttribute("data", dataResponse);
+        return "control-panel";
     }
-    @PostMapping("/")
+    @PostMapping("/main/control-panel")
     public String getButtonClick(Model model, @RequestParam(value = "action") String value){
         webService.sendRequest(value);
-        model.addAttribute("data", webService.getStatus());
+        DataResponse dataResponse = webService.getStatus();
+        model.addAttribute("data", dataResponse);
+        return "control-panel";
+    }
+
+    @GetMapping("/main")
+    public String getMainPage() {
         return "main";
     }
 }
